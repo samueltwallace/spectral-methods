@@ -1,2 +1,2 @@
 # spectral-methods
-Benchmarking Spectral Methods in Various Languages.
+The programs from *Spectral Methods in MATLAB* by Trefethen, translated into Julia.
