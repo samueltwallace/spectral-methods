@@ -1,5 +1,5 @@
 using Plots
-using LinearAlgebra.I
+using LinearAlgebra
 include("cheb.jl")
 
 
@@ -11,8 +11,8 @@ y=x
 xx = repeat(x, size(y)...)
 yy = repeat(y, size(x)...)
 
-f = 10*sin(8*xx .* (yy .- 1))
-D = (D^2)[2:N,2:N]
+f = 10*sin.(8*xx .* (yy .- 1))
+D2 = (D^2)[2:N,2:N]
 L = kron(I,D2) + kron(D2,I)
 u = L\f
 
