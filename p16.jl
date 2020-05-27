@@ -20,6 +20,6 @@ u = L\f
 uu = zeros(N+1, N+1)
 uu[2:N,2:N] = reshape(u, N-1, N-1)
 gr()
-plot(xx,yy,uu,st=:surface)
+plot(reverse(x),reverse(y),uu,st=:wireframe, camera=(180,70))
 savefig("p16.png")
 println("Done!")
