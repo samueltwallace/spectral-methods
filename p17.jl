@@ -1,4 +1,5 @@
 using LinearAlgebra
+using Plots
 include("cheb.jl")
 
 
@@ -16,3 +17,9 @@ k=9
 L = kron(identity, D2) + kron(D2,identity) + k^2*I
 
 u = L\f
+uu = zeros(N+1,N+1)
+uu[2:N,2:N] = reshape(u,N-1,N-1)
+gr()
+plot(reverse(x),reverse(y),uu,st=:wireframe,camera = (25, 65))
+savefig("p17.png")
+println("Done!")
