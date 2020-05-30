@@ -10,7 +10,6 @@ for N=10:10:20
 	f = exp.(x) .* sin.(5*x)
 	plot(xx,ff, title="function" ,show=true)
 	fakederiv = chebfft(f)
-	println(typeof(chebfft))
 	error = chebfft(f) .- exp.(x) .* (sin.(5*x)+5*cos.(5*x))
 	plot(x,error,title="Error",show=true)
 end
