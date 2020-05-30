@@ -34,6 +34,6 @@ for i=1:nplots
 end
 
 gr()
-plot(reverse(x),tdata, reverse(plotdata, dims=2), st=:wireframe, camera=(10,70),zaxis=(-2,2))
+plot(reverse(x),tdata, reverse(plotdata, dims=1), st=:surface, camera = (10,70), zaxis=(-2,2))
 savefig("p19.png")
 println("Done!")
