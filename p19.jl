@@ -16,7 +16,7 @@ plotgap = round(tplot/dt)
 dt = tplot/plotgap
 nplots = round(Int, tmax/tplot)
 
-plotdata = [v zeros(N+1,nplots)]
+plotdata = v
 tdata = 0
 
 
@@ -29,11 +29,13 @@ for i=1:nplots
 		global vold = v
 		global v = vnew
 	end
-	global plotdata[:,i+1] = v
+	global plotdata = [plotdata (v)]
 	global tdata = [tdata; dt*i*plotgap]
 end
 
-gr()
-plot(reverse(x),tdata, reverse(plotdata, dims=1), st=:surface, camera = (10,70), zaxis=(-2,2))
+
+pyplot()
+plot((x), tdata, plotdata', st=:wireframe)
+plot!(camera = (10,70), zaxis=(-2,2), xlabel="x", ylabel="t", zlabel="f")
 savefig("p19.png")
 println("Done!")
