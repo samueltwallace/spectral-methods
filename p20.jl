@@ -17,7 +17,6 @@ vvold = vv
 
 # Time-stepping by leap frog formula
 
-ay,ax = meshgrid([0.5 0.6], [0.1 0.55])
 
 pyplot()
 
@@ -50,7 +49,7 @@ anim = @animate for n =0:3*plotgap
 	vvnew = 2*vv - vvold + dt^2 * (uxx + uyy)
 	global vvold = vv
 	global vv = vvnew
-end
+end every 10
 println("Building gif...")
 finalproduct = gif(anim,"p20.gif",fps=60)
 println("Done!")
