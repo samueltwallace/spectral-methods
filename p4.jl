@@ -20,4 +20,3 @@ plot(x,uprime, show=true)
 print("\n\n\n")
 plot(x,D*u, show=true)
 
-# TODO: NOT WORKING!!!
