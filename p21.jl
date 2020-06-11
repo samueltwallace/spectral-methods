@@ -1,3 +1,4 @@
+using LinearAlgebra
 using Plots
 
 
@@ -16,12 +17,19 @@ end
 
 
 qq = 0:0.2:15
-data = []
-for q=qq
-	e = eig(-D + 2*q*diag(cos.(2*x)))
-	data = [data e]
+data = zeros(11,length(qq))
+for i = 1:length(qq)
+	q = qq[i]
+	e = eigvals(-D + 2*q*Diagonal(cos.(2*x)))
+	global data[:,i] = sort(imag.(e))[1:11]
 end
 
-unicodeplots()
+pyplot()
 
-plot(qq, data)
+
+plot(qq, data[1,:])
+for i=2:11
+	plot!(qq,data[i,:])
+end
+savefig("p21.png")
+println("Done!")
